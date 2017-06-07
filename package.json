@@ -1,0 +1,49 @@
+{
+  "name": "bavatar",
+  "version": "0.0.1",
+  "description": "my application",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp run",
+    "test": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bieyaqing/bavatar.git"
+  },
+  "keywords": [
+    "bieyaqing",
+    "avatar"
+  ],
+  "author": "bieyaqing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bieyaqing/bavatar/issues"
+  },
+  "homepage": "https://github.com/bieyaqing/bavatar#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-loading-bar": "^0.9.0",
+    "angular-material": "^1.1.4",
+    "angular-route": "^1.6.4",
+    "font-awesome": "^4.7.0",
+    "moment": "^2.18.1",
+    "ng-file-model": "0.0.5",
+    "roboto-fontface": "^0.7.0",
+    "tether": "^1.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-remove-html-comments": "^1.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}
