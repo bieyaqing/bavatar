@@ -4,7 +4,7 @@
   "description": "my application",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp run",
+    "start": "gulp serve",
     "test": "gulp build"
   },
   "repository": {
