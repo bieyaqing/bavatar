@@ -82,7 +82,10 @@ gulp.task('build-css', function() {
 });
 
 var JAVASCRIPTS = [
-	SRC + '/js/app.js'
+	SRC + '/js/app.js',
+	SRC + '/js/ctrls/splash.js',
+	SRC + '/js/filters.js',
+	SRC + '/js/languages.js'
 ];
 
 gulp.task('build-js', function() {
