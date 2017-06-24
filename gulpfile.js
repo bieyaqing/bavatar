@@ -6,6 +6,12 @@ var inject = require('gulp-inject');
 var removeHtmlComments = require('gulp-remove-html-comments');
 var webserver = require('gulp-webserver');
 var clean = require('gulp-clean');
+var args = require('get-gulp-args')();
+var gulpif = require('gulp-if');
+var replace = require('gulp-replace');
+var ngmin = require('gulp-ngmin');
+var uglify = require('gulp-uglify');
+var uglifycss = require('gulp-uglifycss');
 
 /** ======
 Parameters
@@ -68,6 +74,10 @@ gulp.task('build-lib', function() {
 gulp.task('build-css', function() {
 	return gulp.src(SRC + '/sass/style.scss')
 	.pipe(sass().on('error', sass.logError))
+	.pipe(gulpif(args.pro, uglifycss({
+		"maxLineLen": 80,
+		"uglyComments": true
+	})))
 	.pipe(gulp.dest(DEST + '/css'));
 });
 
@@ -78,6 +88,8 @@ var JAVASCRIPTS = [
 gulp.task('build-js', function() {
 	return gulp.src(JAVASCRIPTS)
 	.pipe(concat('main.js'))
+	.pipe(gulpif(args.pro, ngmin()))
+	.pipe(gulpif(args.pro, uglify()))
 	.pipe(gulp.dest(DEST + '/js'));
 });
 
@@ -101,6 +113,7 @@ var INJECTRES = [
 ];
 
 gulp.task('build-html', ['build-media', 'build-lib', 'build-css', 'build-js'], function() {
+	var re = new RegExp('/' + DEST + '/', 'g');
 	return gulp.src(SRC + '/**/*.html', {
 		base: SRC
 	})
@@ -108,10 +121,12 @@ gulp.task('build-html', ['build-media', 'build-lib', 'build-css', 'build-js'], f
 		read: false
 	})))
 	.pipe(removeHtmlComments())
+	.pipe(replace(re, ''))
 	.pipe(gulp.dest(DEST));
 });
 
 gulp.task('build-html-lite', function() {
+	var re = new RegExp('/' + DEST + '/', 'g');
 	return gulp.src(SRC + '/**/*.html', {
 		base: SRC
 	})
@@ -119,6 +134,7 @@ gulp.task('build-html-lite', function() {
 		read: false
 	})))
 	.pipe(removeHtmlComments())
+	.pipe(replace(re, ''))
 	.pipe(gulp.dest(DEST));
 });
 

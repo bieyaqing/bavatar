@@ -4,8 +4,8 @@
   "description": "my application",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp serve",
-    "test": "gulp build"
+    "start": "gulp serve --pro",
+    "test": "gulp serve"
   },
   "repository": {
     "type": "git",
@@ -35,15 +35,19 @@
     "tether": "^1.4.0"
   },
   "devDependencies": {
+    "get-gulp-args": "0.0.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-inject": "^4.2.0",
     "gulp-ngmin": "^0.3.0",
     "gulp-remove-html-comments": "^1.0.1",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.8",
     "gulp-webserver": "^0.9.1"
   }
 }
